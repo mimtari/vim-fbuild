@@ -1,11 +1,11 @@
 " Vim syntax file
 " Language: FastBuild
 
-"if exists("b:current_syntax")
-"  finish
-"endif
-"
-"let b:current_syntax = "fbuild"
+if exists("b:current_syntax")
+  finish
+endif
+
+let b:current_syntax = "fbuild"
 
 " Syntax definition
 syn keyword fbKeyword in include
