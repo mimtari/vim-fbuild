@@ -8,22 +8,49 @@ endif
 let b:current_syntax = "fbuild"
 
 " Syntax definition
-syn keyword fbKeyword in include
+syn keyword fbKeyword in
 
-syn keyword fbCommand Alias Compiler Copy CopyDir CSAssembly DLL Exec Executable ForEach Library ObjectList Print Settings Test Unity Using VCXProject
+syn keyword fbFunction Alias
+syn keyword fbFunction Compiler
+syn keyword fbFunction Copy
+syn keyword fbFunction CopyDir
+syn keyword fbFunction CSAssembly
+syn keyword fbFunction DLL
+syn keyword fbFunction Exec
+syn keyword fbFunction Executable
+syn keyword fbFunction ForEach
+syn keyword fbFunction Library
+syn keyword fbFunction ObjectList
+syn keyword fbFunction Print
+syn keyword fbFunction Settings
+syn keyword fbFunction Test
+syn keyword fbFunction Unity
+syn keyword fbFunction Using
+syn keyword fbFunction VCXProject
 
-syn keyword fbOptions AdditionalOptions ApplicationEnvironment AssemblySearchPath AumidOverride CachePath Compiler CompilerForceUsing CompilerInputExcludePath CompilerInputFiles CompilerInputPath CompilerInputPathRecurse CompilerInputPattern CompilerInputUnity CompilerOptions CompilerOutput CompilerOutputExtension CompilerOutputPath CompilerReferences DebuggerFlavor DefaultLanguage Dest Environment ExecArguments ExecExecutable ExecInput ExecOutput Executable ExecWorkingDir ExtraFiles FileType ForcedIncludes ForcedUsingAssemblies IncludeSearchPath IntermediateDirectory LayoutDir LayoutExtensionFilter Librarian LibrarianAdditionalInputs LibrarianOptions LibrarianOutput Libraries Linker LinkerAssemblyResources LinkerLinkObjects LinkerOptions LinkerOutput LinkerStampExe LinkerStampExeArgs LocalDebuggerCommand LocalDebuggerCommandArguments LocalDebuggerEnvironment LocalDebuggerWorkingDirectory Output OutputDirectory Pattern PCHInputFile PCHOutputFile PCHOptions PlatformToolset PreBuildDependencies PreprocessorDefinitions ProjectBuildCommand ProjectRebuildCommand ProjectCleanCommand ProjectConfigs ProjectOutput ProjectInputPaths ProjectInputPathsExcluded ProjectFiles ProjectFilesToExclude ProjectGuid ProjectBasePath ProjectFileTypes ProjectReferences ProjectProjectReferences RootNamespace Source SourceExcludePaths SourcePaths SourcePathsPattern SourcePathsRecurse Targets TestArguments TestExecutable TestOutput TestWorkingDir UnityInputExcludedFiles UnityInputExcludePath UnityInputFiles UnityInputIsolateWritableFiles UnityInputPath UnityInputPathRecurse UnityInputPattern UnityNumFiles UnityOutputPath UnityOutputPattern UnityPCH Workers X360DebuggerCommand
+syn keyword fbInclude #include
+syn keyword fbDefine  #define
+syn keyword fbPreCond #if
+syn keyword fbPreCond #endif
+syn match   fbPreProc "#[a-z]*"
+syn match   fbMacro   "__[A-Z0-9]*__"
 
-syn match fbComment ";.*$"
-syn match fbComment "//.*$"
+syn match   fbComment ";.*$"
+syn match   fbComment "//.*$"
 
-syn region fbString start="'" end="'"
-syn region fbString start='"' end='"'
+syn region  fbString start="'" end="'"
+syn region  fbString start='"' end='"'
 
+syn match   fbVariable "\.[A-Z][A-Za-z0-9_]*"
 
 " Syntax highlighting
-hi def link fbKeyword Statement
-hi def link fbComment Comment
-hi def link fbOptions Type
-hi def link fbCommand PreProc
-hi def link fbString Constant
+hi def link fbKeyword  Statement
+hi def link fbComment  Comment
+hi def link fbInclude  Include
+hi def link fbDefine   Define
+hi def link fbPreCond  PreCond
+hi def link fbPreproc  PreProc
+hi def link fbMacro    Macro
+hi def link fbFunction Function
+hi def link fbString   String
+hi def link fbVariable Identifier
